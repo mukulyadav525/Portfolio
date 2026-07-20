@@ -6,7 +6,7 @@
   --gold: #C8A96E;
   --gold2: #E8C98A;
   --rust: #B85A2A;
-  --dim: #6B6860;
+  --dim: #7A776D;
   --border: rgba(200, 169, 110, 0.18);
 
   --serif: 'Cormorant Garamond', serif;
@@ -53,6 +53,11 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+}
+
+/* keep anchored sections clear of the fixed navbar */
+section[id] {
+  scroll-margin-top: 96px;
 }
 
 body {
@@ -410,19 +415,32 @@ button:focus-visible,
   color: var(--gold);
 }
 
+/* availability pill above the hero title */
+.hero-pill-wrap {
+  margin-bottom: 1.25rem;
+}
+
 .hero-subtitle {
   font-family: var(--sans);
   font-size: 1.25rem;
   color: var(--dim);
   line-height: 1.6;
   max-width: 650px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* quick-scan "what I work with" chip strip under the subtitle */
+.hero-tech-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.25rem;
 }
 
 .hero-cta {
   display: flex;
   gap: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   flex-wrap: wrap;
 }
 
@@ -470,6 +488,7 @@ button:focus-visible,
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 0.25rem;
 }
 
 .soc {
@@ -693,6 +712,72 @@ button:focus-visible,
   border: 1px solid var(--border);
   border-radius: var(--feature-card-radius);
   overflow: hidden;
+}
+
+.about-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem 2rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-badge {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(200, 169, 110, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--gold);
+  transition: all var(--t-card);
+}
+
+.about-card:hover .about-badge {
+  border-color: var(--card-hover-border);
+  background: rgba(200, 169, 110, 0.16);
+}
+
+.about-card-head-text {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.about-card-head-text strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--paper);
+  margin-top: 0.15rem;
+}
+
+/* "currently building" highlight line in About */
+.about-highlight {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--dim);
+  border-left: 2px solid var(--gold);
+  padding: 0.15rem 0 0.15rem 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.about-highlight strong {
+  font-family: var(--sans);
+  color: var(--gold);
+  font-weight: 700;
 }
 
 .info-row {
